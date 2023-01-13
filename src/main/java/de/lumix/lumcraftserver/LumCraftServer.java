@@ -1,6 +1,7 @@
 package de.lumix.lumcraftserver;
 
 import de.lumix.lumcraftserver.listener.JoinListener;
+import de.lumix.lumcraftserver.listener.QuitListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
@@ -18,6 +19,7 @@ public final class LumCraftServer extends JavaPlugin {
         //Register Listener
         PluginManager manager = Bukkit.getPluginManager();
         manager.registerEvents(new JoinListener(), this);
+        manager.registerEvents(new QuitListener(), this);
     }
 
     @Override
