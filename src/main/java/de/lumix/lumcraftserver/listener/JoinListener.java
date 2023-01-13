@@ -1,5 +1,6 @@
 package de.lumix.lumcraftserver.listener;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,9 +11,9 @@ public class JoinListener  implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        event.setJoinMessage("Ein Typ ist beigetreten!");
+        event.setJoinMessage("");
 
-        player.sendMessage("########################### \n" + player.getName() + "\n ###########################");
+        player.sendMessage(ChatColor.GOLD.toString() + ChatColor.UNDERLINE + "Wilkommen auf unserem Server \n" + player.getName());
     }
 
 }
