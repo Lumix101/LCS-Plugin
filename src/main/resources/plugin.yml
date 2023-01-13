@@ -1,0 +1,8 @@
+name: LumCraftServer
+version: '${project.version}'
+main: de.lumix.lumcraftserver.LumCraftServer
+api-version: 1.16
+prefix: LCS-MainPlugin
+authors: [ Lumix101 ]
+description: Das ist ein Test Plugin
+website: https://lumixtv.de/
