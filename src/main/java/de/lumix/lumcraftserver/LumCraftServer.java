@@ -23,7 +23,7 @@ public final class LumCraftServer extends JavaPlugin {
         manager.registerEvents(new QuitListener(), this);
 
         //Register Commands
-        getCommand("heal").setExecutor(new HealCommand());
+        this.getCommand(heal).setExecutor(new HealCommand());
     }
 
     @Override
