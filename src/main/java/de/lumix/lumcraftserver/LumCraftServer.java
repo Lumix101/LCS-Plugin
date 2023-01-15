@@ -1,5 +1,6 @@
 package de.lumix.lumcraftserver;
 
+import de.lumix.lumcraftserver.commands.FlyCommand;
 import de.lumix.lumcraftserver.commands.GameModeChangeCommand;
 import de.lumix.lumcraftserver.commands.HealCommand;
 import de.lumix.lumcraftserver.listener.JoinListener;
@@ -28,6 +29,7 @@ public final class LumCraftServer extends JavaPlugin {
         //Register Commands
         (getCommand("heal")).setExecutor(new HealCommand());
         (getCommand("gm")).setExecutor(new GameModeChangeCommand());
+        (getCommand("fly")).setExecutor(new FlyCommand());
     }
 
     @Override

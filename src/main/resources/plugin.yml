@@ -11,3 +11,5 @@ commands:
       description: Du kannst ich heiln!
    gm:
       description: Du kannst deinen Gamemode ändern
+   fly:
+      description: Du kannst Fliegen
