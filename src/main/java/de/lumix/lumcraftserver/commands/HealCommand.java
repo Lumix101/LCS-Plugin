@@ -19,8 +19,16 @@ public class HealCommand implements CommandExecutor {
                     player.setHealth(20);
                     player.setFoodLevel(20);
                     player.sendMessage(ChatColor.GREEN + "[LCS-MainPlugin] Du hast dich geheielt!");
-                } else {
-                    player.sendMessage(ChatColor.RED + "[LCS-MainPlugin] Du hast den Befehl falsch ausgeführt! Bitte verwende /heal");
+                } else if (args.length == 1){
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (target != null) {
+                        target.setHealth(20);
+                        target.setFoodLevel(20);
+                        target.sendMessage(ChatColor.GREEN + "[LCS-MainPlugin] Du wurdest geheilt von" + player.getName() + "!");
+
+                    } else {
+                        player.sendMessage(ChatColor.RED + "[LCS-MainPlugin] Spieler" + args[0] + "wurde nicht gefunden!");
+                    }
                 }
             } else {
                 player.sendMessage(ChatColor.RED + "[LCS-MainPlugin] Du hast nicht genug Rechte!");
