@@ -13,7 +13,7 @@ public class JoinListener  implements Listener {
 
         event.setJoinMessage("");
 
-        player.sendMessage(ChatColor.GOLD.toString() + ChatColor.UNDERLINE + "Wilkommen auf unserem Server \n" + player.getName());
+        player.sendMessage(ChatColor.GOLD.toString() + ChatColor.BOLD + "Wilkommen, "+ player.getName() + " Viel Spaß und viel " + ChatColor.GREEN + ChatColor.BOLD + "Erfolg!");
     }
 
 }
