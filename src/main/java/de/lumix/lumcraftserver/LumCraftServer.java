@@ -3,6 +3,7 @@ package de.lumix.lumcraftserver;
 import de.lumix.lumcraftserver.commands.FlyCommand;
 import de.lumix.lumcraftserver.commands.GameModeChangeCommand;
 import de.lumix.lumcraftserver.commands.HealCommand;
+import de.lumix.lumcraftserver.commands.TimeCommand;
 import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
 import org.bukkit.Bukkit;
@@ -30,6 +31,7 @@ public final class LumCraftServer extends JavaPlugin {
         (getCommand("heal")).setExecutor(new HealCommand());
         (getCommand("gm")).setExecutor(new GameModeChangeCommand());
         (getCommand("fly")).setExecutor(new FlyCommand());
+        (getCommand("t")).setExecutor(new TimeCommand());
     }
 
     @Override
