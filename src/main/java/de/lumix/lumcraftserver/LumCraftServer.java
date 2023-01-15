@@ -1,5 +1,6 @@
 package de.lumix.lumcraftserver;
 
+import de.lumix.lumcraftserver.commands.HealCommand;
 import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
 import org.bukkit.Bukkit;
@@ -20,6 +21,9 @@ public final class LumCraftServer extends JavaPlugin {
         PluginManager manager = Bukkit.getPluginManager();
         manager.registerEvents(new JoinListener(), this);
         manager.registerEvents(new QuitListener(), this);
+
+        //Register Commands
+        getCommand("heal").setExecutor(new HealCommand());
     }
 
     @Override

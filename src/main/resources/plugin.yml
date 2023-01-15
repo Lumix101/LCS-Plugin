@@ -6,3 +6,6 @@ prefix: LCS-MainPlugin
 authors: [ Lumix101 ]
 description: Das ist ein Test Plugin
 website: https://lumixtv.de/
+command:
+   heal:
+      description: Du kannst ich heiln!
