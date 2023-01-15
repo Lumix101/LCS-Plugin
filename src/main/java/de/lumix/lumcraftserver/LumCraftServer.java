@@ -6,8 +6,10 @@ import de.lumix.lumcraftserver.commands.HealCommand;
 import de.lumix.lumcraftserver.commands.TimeCommand;
 import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
+import de.lumix.lumcraftserver.utils.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,8 +17,17 @@ import java.util.Objects;
 
 public final class LumCraftServer extends JavaPlugin {
 
+    public static FileConfiguration cfg;
+    public static MySQL mysql;
+
     @Override
     public void onEnable() {
+
+        loadConfig();
+        cfg = getConfig();
+
+        loadMySQL();
+
         // Plugin Start Message
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[LCS-MainPlugin] ###########################");
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[LCS-MainPlugin] # Plugin wurde gestartet! #");
@@ -40,5 +51,19 @@ public final class LumCraftServer extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[LCS-MainPlugin] ###########################");
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[LCS-MainPlugin] #  Plugin wurde gestoppt! #");
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[LCS-MainPlugin] ###########################");
+    }
+
+    private void loadConfig() {
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+    }
+
+    public void reloadConfig() {
+        reloadConfig();
+        cfg = getConfig();
+    }
+
+    private void loadMySQL() {
+        mysql = new MySQL(cfg.getString("DB.host"), cfg.getString("DB.port"), cfg.getString("DB.db"), cfg.getString("DB.user"),cfg.getString("DB.password"));
     }
 }
