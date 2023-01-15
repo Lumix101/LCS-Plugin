@@ -24,10 +24,10 @@ public class HealCommand implements CommandExecutor {
                     if (target != null) {
                         target.setHealth(20);
                         target.setFoodLevel(20);
-                        target.sendMessage(ChatColor.GREEN + "[LCS-MainPlugin] Du wurdest geheilt von" + player.getName() + "!");
+                        target.sendMessage(ChatColor.GREEN + "[LCS-MainPlugin] Du wurdest geheilt von " + player.getName() + "!");
 
                     } else {
-                        player.sendMessage(ChatColor.RED + "[LCS-MainPlugin] Spieler" + args[0] + "wurde nicht gefunden!");
+                        player.sendMessage(ChatColor.RED + "[LCS-MainPlugin] Spieler " + args[0] + " wurde nicht gefunden!");
                     }
                 }
             } else {

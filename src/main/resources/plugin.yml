@@ -6,6 +6,8 @@ prefix: LCS-MainPlugin
 authors: [ Lumix101 ]
 description: Das ist ein Test Plugin
 website: https://lumixtv.de/
-command:
+commands:
    heal:
       description: Du kannst ich heiln!
+   gm:
+      description: Du kannst deinen Gamemode ändern

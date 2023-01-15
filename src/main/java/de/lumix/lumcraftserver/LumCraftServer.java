@@ -1,5 +1,6 @@
 package de.lumix.lumcraftserver;
 
+import de.lumix.lumcraftserver.commands.GameModeChangeCommand;
 import de.lumix.lumcraftserver.commands.HealCommand;
 import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
@@ -7,6 +8,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class LumCraftServer extends JavaPlugin {
 
@@ -23,7 +26,8 @@ public final class LumCraftServer extends JavaPlugin {
         manager.registerEvents(new QuitListener(), this);
 
         //Register Commands
-        this.getCommand(heal).setExecutor(new HealCommand());
+        (getCommand("heal")).setExecutor(new HealCommand());
+        (getCommand("gm")).setExecutor(new GameModeChangeCommand());
     }
 
     @Override
