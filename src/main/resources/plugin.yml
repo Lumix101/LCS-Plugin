@@ -13,5 +13,3 @@ commands:
       description: Du kannst deinen Gamemode ändern
    fly:
       description: Du kannst Fliegen
-   t:
-      description: Du kannst die Zeit wechseln
