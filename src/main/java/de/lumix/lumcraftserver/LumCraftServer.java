@@ -7,7 +7,6 @@ import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
 import de.lumix.lumcraftserver.mysql.MySql;
 import de.lumix.lumcraftserver.mysql.MySqlGetter;
-import de.lumix.lumcraftserver.scoreboard.MainScorebaord;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,13 +22,8 @@ public final class LumCraftServer extends JavaPlugin {
     public MySql SQL;
     public MySqlGetter DATA;
 
-    private static LumCraftServer instance;
-    public  MainScorebaord mainScorebaord = new MainScorebaord(DATA);
-
     @Override
     public void onEnable() {
-
-        instance = this;
         loadConfig();
         cfg = getConfig();
 
@@ -85,9 +79,5 @@ public final class LumCraftServer extends JavaPlugin {
     private void loadConfig() {
         getConfig().options().copyDefaults(true);
         saveConfig();
-    }
-
-    public static LumCraftServer getInstance(){
-        return instance;
     }
 }

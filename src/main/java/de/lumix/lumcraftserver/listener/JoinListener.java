@@ -26,12 +26,6 @@ public class JoinListener  implements Listener {
         player.sendMessage(ChatColor.GOLD.toString() + ChatColor.BOLD + "Wilkommen, "+ player.getName() + " Viel Spaß und viel " + ChatColor.GREEN + ChatColor.BOLD + "Erfolg!");
 
         DATA.createPlayer(player);
-
-        LumCraftServer.getInstance().mainScorebaord.setScoreboard(player);
-
-        Bukkit.getScheduler().runTaskTimer(LumCraftServer.getInstance(), () -> {
-            LumCraftServer.getInstance().mainScorebaord.updateScoreboard(player);
-            }, 0,20);
     }
 
 }
