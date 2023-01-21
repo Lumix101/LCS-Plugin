@@ -1,9 +1,7 @@
 package de.lumix.lumcraftserver.listener;
 
-import de.lumix.lumcraftserver.LumCraftServer;
 import de.lumix.lumcraftserver.mysql.MySqlGetter;
-import de.lumix.lumcraftserver.scoreboard.MainScorebaord;
-import org.bukkit.Bukkit;
+import de.lumix.lumcraftserver.utils.ScoreboardMain;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

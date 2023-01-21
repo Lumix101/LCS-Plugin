@@ -11,6 +11,7 @@ import java.util.UUID;
 public class MySqlGetter {
 
     private LumCraftServer plugin;
+
     public MySqlGetter(LumCraftServer plugin) {
         this.plugin = plugin;
     }
@@ -74,6 +75,7 @@ public class MySqlGetter {
             e.printStackTrace();
         }
     }
+
     public int getCoins(UUID uuid) {
         PreparedStatement ps;
         ResultSet rs;
@@ -83,7 +85,7 @@ public class MySqlGetter {
             ps.setString(1, uuid.toString());
             rs = ps.executeQuery();
             int coins = 0;
-            if (rs.next()){
+            if (rs.next()) {
                 coins = rs.getInt("COINS");
             }
             return coins;
@@ -91,5 +93,20 @@ public class MySqlGetter {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public String getCoins2(UUID uuid) {
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            ps = plugin.SQL.getConnection().prepareStatement("SELECT coins FROM `players` WHERE uuid = " + uuid.toString() + "';");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("coins");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

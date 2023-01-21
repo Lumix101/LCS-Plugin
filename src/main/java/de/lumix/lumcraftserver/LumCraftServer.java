@@ -7,6 +7,7 @@ import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
 import de.lumix.lumcraftserver.mysql.MySql;
 import de.lumix.lumcraftserver.mysql.MySqlGetter;
+import de.lumix.lumcraftserver.utils.ScoreboardMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
