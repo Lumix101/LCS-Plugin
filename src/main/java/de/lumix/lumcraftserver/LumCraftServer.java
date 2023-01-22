@@ -1,5 +1,6 @@
 package de.lumix.lumcraftserver;
 
+import de.lumix.lumcraftserver.commands.CoinsCommand;
 import de.lumix.lumcraftserver.commands.FlyCommand;
 import de.lumix.lumcraftserver.commands.GameModeChangeCommand;
 import de.lumix.lumcraftserver.commands.HealCommand;
@@ -7,7 +8,6 @@ import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
 import de.lumix.lumcraftserver.mysql.MySql;
 import de.lumix.lumcraftserver.mysql.MySqlGetter;
-import de.lumix.lumcraftserver.utils.ScoreboardMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -60,6 +60,7 @@ public final class LumCraftServer extends JavaPlugin {
         (getCommand("heal")).setExecutor(new HealCommand());
         (getCommand("gm")).setExecutor(new GameModeChangeCommand());
         (getCommand("fly")).setExecutor(new FlyCommand());
+        (getCommand("coins")).setExecutor(new CoinsCommand(DATA));
 
     }
 
