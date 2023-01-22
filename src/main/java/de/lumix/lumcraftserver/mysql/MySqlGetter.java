@@ -20,7 +20,7 @@ public class MySqlGetter {
         PreparedStatement ps;
 
         try {
-            ps = plugin.SQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `PlayerData` (`id` INT(11) NOT NULL AUTO_INCREMENT ,`McName` VARCHAR(255), `McUUID` VARCHAR(255), `COINS` INT(255), PRIMARY KEY(`id`))");
+            ps = plugin.SQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `playerdata` (`ID` INT(11) NOT NULL AUTO_INCREMENT , `McName` VARCHAR(255) NOT NULL , `McUUID` VARCHAR(255) NOT NULL , `UsrCoins` INT(255) NOT NULL , `UsrVerify` TINYINT(1) NOT NULL , `UsrToken` VARCHAR(255) NOT NULL , `EvWins` INT NOT NULL , `EvLooses` INT NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,7 +34,7 @@ public class MySqlGetter {
         try {
             UUID uuid = player.getUniqueId();
             if (!exists(uuid)) {
-                ps2 = plugin.SQL.getConnection().prepareStatement("INSERT IGNORE INTO `PlayerData` (`McName` ,`McUUID` ,`COINS`) VALUES (?,?,?)");
+                ps2 = plugin.SQL.getConnection().prepareStatement("INSERT IGNORE INTO `PlayerData` (`McName` ,`McUUID` ,`UsrCoins`) VALUES (?,?,?)");
                 ps2.setString(1, player.getName());
                 ps2.setString(2, uuid.toString());
                 ps2.setInt(3, 1000);
@@ -67,7 +67,7 @@ public class MySqlGetter {
         PreparedStatement ps;
 
         try {
-            ps = plugin.SQL.getConnection().prepareStatement("UPDATE `PlayerData` SET `COINS` = ? WHERE `McUUID` = ?");
+            ps = plugin.SQL.getConnection().prepareStatement("UPDATE `PlayerData` SET `UsrCoins` = ? WHERE `McUUID` = ?");
             ps.setInt(1, (getCoins(uuid) + points));
             ps.setString(2, uuid.toString());
             ps.executeUpdate();
@@ -81,7 +81,7 @@ public class MySqlGetter {
         ResultSet rs;
 
         try {
-            ps = plugin.SQL.getConnection().prepareStatement("SELECT `COINS` FROM `PlayerData` WHERE `McUUID` = ?");
+            ps = plugin.SQL.getConnection().prepareStatement("SELECT `UsrCoins` FROM `PlayerData` WHERE `McUUID` = ?");
             ps.setString(1, uuid.toString());
             rs = ps.executeQuery();
             int coins = 0;
@@ -95,18 +95,22 @@ public class MySqlGetter {
         return 0;
     }
 
-    public String getCoins2(UUID uuid) {
+    public int getVerify(UUID uuid) {
         PreparedStatement ps;
         ResultSet rs;
+
         try {
-            ps = plugin.SQL.getConnection().prepareStatement("SELECT coins FROM `players` WHERE uuid = " + uuid.toString() + "';");
+            ps = plugin.SQL.getConnection().prepareStatement("SELECT `UsrVerify` FROM `PlayerData` WHERE `McUUID` = ?");
+            ps.setString(1, uuid.toString());
             rs = ps.executeQuery();
+            int Verify = 0;
             if (rs.next()) {
-                return rs.getString("coins");
+                Verify = rs.getInt("Verify");
             }
+            return Verify;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return 0;
     }
 }

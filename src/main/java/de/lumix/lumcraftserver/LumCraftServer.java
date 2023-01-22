@@ -1,9 +1,6 @@
 package de.lumix.lumcraftserver;
 
-import de.lumix.lumcraftserver.commands.CoinsCommand;
-import de.lumix.lumcraftserver.commands.FlyCommand;
-import de.lumix.lumcraftserver.commands.GameModeChangeCommand;
-import de.lumix.lumcraftserver.commands.HealCommand;
+import de.lumix.lumcraftserver.commands.*;
 import de.lumix.lumcraftserver.listener.JoinListener;
 import de.lumix.lumcraftserver.listener.QuitListener;
 import de.lumix.lumcraftserver.mysql.MySql;
@@ -61,6 +58,7 @@ public final class LumCraftServer extends JavaPlugin {
         (getCommand("gm")).setExecutor(new GameModeChangeCommand());
         (getCommand("fly")).setExecutor(new FlyCommand());
         (getCommand("coins")).setExecutor(new CoinsCommand(DATA));
+        (getCommand("menu")).setExecutor(new MenuCommand(DATA));
 
     }
 
