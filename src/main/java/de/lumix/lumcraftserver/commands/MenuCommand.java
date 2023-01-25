@@ -28,7 +28,7 @@ public class MenuCommand implements CommandExecutor {
                 Inventory inventory = Bukkit.createInventory(null, 9*3, ChatColor.LIGHT_PURPLE.toString() + ChatColor.BOLD + "Main Menu");
                 inventory.setItem(11, new ItemBuilder(Material.PAPER).setDisplayname(ChatColor.GREEN.toString() + ChatColor.BOLD + "Spielerinfo").setLore(ChatColor.GOLD.toString() + ChatColor.BOLD + "Spielername:" + player.getName(),ChatColor.RED.toString() + ChatColor.BOLD + "UUID:" + player.getUniqueId() ,ChatColor.YELLOW.toString() + ChatColor.BOLD + "Coins:" + data.getCoins(player.getUniqueId())).build());
 
-                inventory.setItem(15, new ItemBuilder(Material.PAPER).setDisplayname(ChatColor.GREEN.toString() + ChatColor.BOLD + "Spielerinfo").setLore(ChatColor.GOLD.toString() + ChatColor.BOLD + "Spielername:" + player.getName(),ChatColor.RED.toString() + ChatColor.BOLD + "UUID:" + player.getUniqueId() ,ChatColor.YELLOW.toString() + ChatColor.BOLD + "Coins:" + data.getCoins(player.getUniqueId())).build());
+                inventory.setItem(11, new ItemBuilder(Material.PAPER).setDisplayname(ChatColor.GREEN.toString() + ChatColor.BOLD + "Spawn").setLore(ChatColor.GOLD.toString() + ChatColor.BOLD + "Spielername:" + player.getName(),ChatColor.RED.toString() + ChatColor.BOLD + "UUID:" + player.getUniqueId() ,ChatColor.YELLOW.toString() + ChatColor.BOLD + "Coins:" + data.getCoins(player.getUniqueId())).build());
 
 
                 player.openInventory(inventory);

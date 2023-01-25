@@ -95,19 +95,24 @@ public class MySqlGetter {
         return 0;
     }
 
-    public int getVerify(UUID uuid) {
+    public int payCoins(UUID uuid, UUID uuid2, String betrag) {
         PreparedStatement ps;
+        PreparedStatement ps2;
         ResultSet rs;
+        ResultSet rs2;
 
         try {
-            ps = plugin.SQL.getConnection().prepareStatement("SELECT `UsrVerify` FROM `PlayerData` WHERE `McUUID` = ?");
+            ps = plugin.SQL.getConnection().prepareStatement("SELECT `UsrCoins` FROM `PlayerData` WHERE `McUUID` = ?");
             ps.setString(1, uuid.toString());
             rs = ps.executeQuery();
-            int Verify = 0;
+
+            ps2 = plugin.SQL.getConnection().prepareStatement("SELECT `UsrCoins` FROM `PlayerData` WHERE `McUUID` = ?");
+            ps2.setString(1, uuid.toString());
+            rs = ps2.executeQuery();
             if (rs.next()) {
-                Verify = rs.getInt("Verify");
+
             }
-            return Verify;
+            return coins;
         } catch (SQLException e) {
             e.printStackTrace();
         }
